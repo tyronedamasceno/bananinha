@@ -128,6 +128,7 @@ function deploy_prod {
   rsync -av --exclude frontend/node_modules --exclude frontend/.nuxt * ubuntu@$HOST_PROD:./bananinha/
   ssh ubuntu@$HOST_PROD "
     cd ~/bananinha
+    git pull
     source dev.sh
     dkbuild
     dkrun_prod
